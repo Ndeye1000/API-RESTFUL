@@ -1,32 +1,50 @@
 # API RESTful Fruits
 
-Ce projet est une application Flask qui propose une API RESTful pour gérer une liste de fruits stockée dans une base de données SQLite. Il inclut également une interface web pour afficher les fruits.
+Une API RESTful développée avec Flask pour gérer une base de données de fruits, avec interface web intégrée.
+
+## Technologies utilisées
+
+- Python 3.x
+- Flask 
+- SQLite3
+- HTML/CSS
 
 ## Structure du projet
 
-- `app.py` : Application principale Flask (API et interface web)
-- `db.py` : Script d'initialisation de la base de données SQLite
-- `ma_base.db` : Base de données SQLite
-- `templates/index.html` : Template HTML pour l'affichage des fruits
-- `.gitignore` : Fichiers et dossiers ignorés par Git
+```
+API-RESTFUL/
+│
+├── app.py           # Application principale Flask
+├── db.py           # Initialisation de la base de données
+├── ma_base.db      # Base de données SQLite
+├── templates/      # Templates HTML
+│   └── index.html  # Page d'accueil
+├── static/         # Fichiers statiques (CSS, JS)
+└── .gitignore     # Configuration Git
+```
+
+## Prérequis
+
+- Python 3.13 installé
+- pip (gestionnaire de paquets Python)
 
 ## Installation
 
-1. **Cloner le dépôt :**
+1. **Cloner le projet :**
    ```sh
-   git clone <url-du-repo>
+   git clone https://github.com/NdeyeS/API-RESTFUL.git
    cd API-RESTFUL
    ```
 
-2. **Créer un environnement virtuel :**
+2. **Créer l'environnement virtuel :**
    ```sh
    python -m venv venv
-   source venv/bin/activate  # Sur Windows : venv\Scripts\activate
+   .\venv\Scripts\activate  # Windows
    ```
 
 3. **Installer les dépendances :**
    ```sh
-   pip install flask
+   pip install -r requirements.txt
    ```
 
 4. **Initialiser la base de données :**
@@ -34,29 +52,56 @@ Ce projet est une application Flask qui propose une API RESTful pour gérer une 
    python db.py
    ```
 
-## Utilisation
+## Démarrage
 
-1. **Lancer l'application :**
+1. **Lancer le serveur :**
    ```sh
    python app.py
    ```
 
-2. **Accéder à l'interface web :**
-   - Ouvrir [http://127.0.0.1:5000](http://127.0.0.1:5000) dans votre navigateur.
+2. **Accéder à l'application :**
+   - Interface web : [http://localhost:5000](http://localhost:5000)
+   - API : [http://localhost:5000/api/fruits](http://localhost:5000/api/fruits)
 
-3. **Endpoints API :**
+## Documentation API
 
-   - `GET /api/fruits` : Liste des fruits
-   - `GET /api/fruits/<id>` : Détails d'un fruit par son ID
-   - `POST /api/fruits` : Ajouter un fruit
-   - `PUT /api/fruits/<id>` : Modifier un fruit
-   - `DELETE /api/fruits/<id>` : Supprimer un fruit
+### Endpoints disponibles
 
-## Remarques
+| Méthode | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/fruits` | Récupérer tous les fruits |
+| GET | `/api/fruits/<id>` | Récupérer un fruit par ID |
+| POST | `/api/fruits` | Ajouter un nouveau fruit |
+| PUT | `/api/fruits/<id>` | Modifier un fruit existant |
+| DELETE | `/api/fruits/<id>` | Supprimer un fruit |
 
-- Les données affichées sur la page web proviennent de la base SQLite.
-- L'API utilise actuellement une liste en mémoire (`liste_fruits`). Pour une gestion complète via la base de données, adaptez les routes pour interagir avec SQLite.
+### Exemple de requête POST
+
+```json
+{
+    "nom": "Pomme",
+    "description": "Fruit rouge ou vert",
+    "prix": 1.50,
+    "quantite": 100
+}
+```
+
+## Tests
+
+Pour exécuter les tests :
+```sh
+python -m pytest
+```
+
+## Contribution
+
+1. Fork le projet
+2. Créez votre branche (`git checkout -b feature/AmazingFeature`)
+3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
 
 ## Auteur
 
-- Ndeye S. Mergane
+- **Ndeye S. Mergane** 
+
