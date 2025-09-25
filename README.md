@@ -4,7 +4,7 @@ Une API RESTful développée avec Flask pour gérer une base de données de frui
 
 ## Technologies utilisées
 
-- Python 3.x
+- Python 3.13
 - Flask 
 - SQLite3
 - HTML/CSS
